@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: forge-postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: forge_sprint
+      POSTGRES_USER: forge
+      POSTGRES_PASSWORD: forge123
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
