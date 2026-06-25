@@ -127,3 +127,21 @@ export interface Interview {
   created_at: string;
   updated_at: string;
 }
+
+export interface JobApplication {
+  id: number;
+  user_id: number;
+  resume_id: number | null;
+  resume?: {
+    id: number;
+    original_filename: string;
+  } | null;
+  job_title: string;
+  company_name: string | null;
+  job_description: string | null;
+  status: 'applied' | 'ats_scanned' | 'interviewing' | 'offered' | 'rejected';
+  score: number | null;
+  created_at: string;
+  updated_at: string;
+}
+

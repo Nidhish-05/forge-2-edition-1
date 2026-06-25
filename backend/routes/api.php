@@ -43,4 +43,10 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/interviews/{interview}',                  [InterviewController::class, 'show']);
     Route::post('/interviews/{interview}/submit',          [InterviewController::class, 'submitAnswers']);
     Route::delete('/interviews/{interview}',               [InterviewController::class, 'destroy']);
+
+    // Job Applications (Kanban)
+    Route::apiResource('/applications', \App\Http\Controllers\Api\JobApplicationController::class);
+
+    // Profile updates
+    Route::put('/profile', [\App\Http\Controllers\Api\ProfileController::class, 'update']);
 });

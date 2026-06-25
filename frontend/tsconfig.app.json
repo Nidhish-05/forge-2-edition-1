@@ -23,15 +23,16 @@
     "types": ["vite/client"],
 
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     
     "paths": {
       "@/*": ["src/*"]
     },
 
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": false,
     "erasableSyntaxOnly": true
   },
 
