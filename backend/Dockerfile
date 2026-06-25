@@ -31,3 +31,6 @@ RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/a
 
 # Expose default port
 EXPOSE 80
+
+# Run migrations, seeders, and start apache on boot
+CMD php artisan migrate --force && php artisan db:seed --force && apache2-foreground
