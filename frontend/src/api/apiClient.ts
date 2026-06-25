@@ -1,7 +1,18 @@
 import axios from "axios";
 
+let rawUrl = import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1";
+
+// Proactive URL normalization to prevent common copy-paste errors
+let normalizedUrl = rawUrl.trim();
+if (!normalizedUrl.endsWith("/api/v1") && !normalizedUrl.endsWith("/api/v1/")) {
+  normalizedUrl = normalizedUrl.replace(/\/$/, "");
+  normalizedUrl = `${normalizedUrl}/api/v1`;
+}
+
+console.log("[Forge Sprint] API Base URL configured as:", normalizedUrl);
+
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1",
+  baseURL: normalizedUrl,
   timeout: 30000,
   headers: {
     "Content-Type": "application/json",
